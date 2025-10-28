@@ -78,7 +78,7 @@
 
 ## 示例
 
-### 请求示例
+### 同步请求-请求示例
 
 ```bash
 curl --location --request POST 'https://api.coze.cn/v1/workflow/run' \
@@ -92,7 +92,23 @@ curl --location --request POST 'https://api.coze.cn/v1/workflow/run' \
 }'
 ```
 
-### 返回示例
+### 异步请求-请求示例
+
+```bash
+curl --location --request POST 'https://api.coze.cn/v1/workflow/run' \
+--header 'Authorization: Bearer pat_hfwkehfncaf****' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "workflow_id": "73664689170551*****",
+    "parameters": {
+        "user_name":"George"
+    },
+    "is_async": true
+}'
+
+```
+
+### 同步请求-返回示例
 
 ```json
 {
@@ -105,6 +121,16 @@ curl --location --request POST 'https://api.coze.cn/v1/workflow/run' \
         "token_count": 150,
         "output_count": 100
     }
+}
+```
+
+### 异步请求-返回示例
+
+```json
+{
+    "debug_url": "https://www.coze.cn/work_flow?execute_id=742482313128840****&space_id=731375784444321****&workflow_id=74243949454920****",
+    "execute_id": "74248231312884****",
+    "msg": ""
 }
 ```
 
